@@ -66,12 +66,13 @@ const Categories = () => {
   };
 
   return (
-    <div className="w-full mt-6 md:fixed top-28">
+    //md:fixed top-28
+    <div className="w-full mt-6 ">
       <Slider {...settings}>
         {categories.map((category) => (
           <div key={category.name}>
             <button
-              className="flex flex-col items-center justify-center bg-gray-100 p-4 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none"
+              className="flex flex-col items-center justify-center bg-gray-100 p-4 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none w-24 h-24"
             >
               <div className="text-3xl">{category.icon}</div>
               <span className="mt-2 text-sm font-medium">{category.name}</span>

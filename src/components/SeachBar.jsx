@@ -4,7 +4,8 @@ const SearchBar = () => {
     const [location, setLocation] = useState("");
 
     return (
-        <div className="flex justify-center items-center p-4 md:fixed top-16 w-full">
+        //md:fixed top-16
+        <div className="flex justify-center items-center p-4  w-full">
             <input
                 type="text"
                 name="Search Location"
