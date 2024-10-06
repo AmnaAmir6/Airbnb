@@ -1,3 +1,4 @@
+import Categories from "../components/Categories"
 import Navbar from "../components/Navbar"
 import SearchBar from "../components/SeachBar"
 
@@ -7,6 +8,7 @@ const HomePage = () => {
         <>
         <Navbar/>
         <SearchBar/>
+        <Categories/>
         </>
     )
 }
