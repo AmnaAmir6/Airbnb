@@ -8,11 +8,11 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
 
   const NextArrow = ({ className, style, onClick }) => (
-    <FaArrowRight className={className} style={{ ...style, display: "block", color: "white", right:"10px", zIndex: 10, width: "25px",height: "25px",  border: "1px solid #e54c4c", borderRadius: "50%",backgroundColor: "#f26157"}} onClick={onClick} />
+    <FaArrowRight className={className} style={{ ...style, display: "block", color: "white", right:"10px", zIndex: 9, width: "25px",height: "25px",  border: "1px solid #e54c4c", borderRadius: "50%",backgroundColor: "#f26157"}} onClick={onClick} />
   );
 
   const PrevArrow = ({ className, style, onClick }) => (
-    <FaArrowLeft className={className} style={{ ...style, display: "block", color: "white", left: "10px", zIndex: 10 , width: "25px",height: "25px",  border: "1px solid #e54c4c", borderRadius: "50%",backgroundColor: "#f26157"}} onClick={onClick} />
+    <FaArrowLeft className={className} style={{ ...style, display: "block", color: "white", left: "10px", zIndex: 9 , width: "25px",height: "25px",  border: "1px solid #e54c4c", borderRadius: "50%",backgroundColor: "#f26157"}} onClick={onClick} />
   );
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListingCard = ({ image, title, type, guests, bedrooms, bathrooms, price, rating }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden m-[20px]">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-semibold">{title}</h2>

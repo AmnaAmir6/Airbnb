@@ -1,4 +1,5 @@
 import Categories from "../components/Categories"
+import Footer from "../components/Footer"
 import ListingCard from "../components/ListingCard"
 import Navbar from "../components/Navbar"
 import SearchBar from "../components/SeachBar"
@@ -59,6 +60,7 @@ const HomePage = () => {
         ))}
       </div>
       </div>
+      <Footer/>
         </>
     )
 }
