@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-const Categories = () => {
+const Categories = ({ onCategorySelect , selectedCategory}) => {
   const [categories, setCategories] = useState([]);
 
   const NextArrow = ({ className, style, onClick }) => (
@@ -22,15 +22,15 @@ const Categories = () => {
   function fetchCategories() {
     const data = [
       { name: "Beachfront", icon: "🏖️" },
-      { name: "Cabins", icon: "🏕️" },
+      { name: "Cabin", icon: "🏕️" },
       { name: "Trending", icon: "🔥" },
       { name: "Lakefront", icon: "🏞️" },
-      { name: "Tiny Homes", icon: "🏡" },
+      { name: "Tiny Home", icon: "🏡" },
       { name: "Off-grid", icon: "🌲" },
       { name: "Luxury", icon: "💎" },
-      { name: "Farm Stays", icon: "🚜" },
-      { name: "Treehouses", icon: "🌳" },
-      { name: "Domes", icon: "🛖" },
+      { name: "Farm Stay", icon: "🚜" },
+      { name: "Treehouse", icon: "🌳" },
+      { name: "Dome", icon: "🛖" },
     ];
     setCategories(data);
   }
@@ -72,7 +72,8 @@ const Categories = () => {
         {categories.map((category) => (
           <div key={category.name}>
             <button
-              className="flex flex-col items-center justify-center bg-gray-100 p-4 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none w-24 h-24"
+              className="flex flex-col items-center justify-center bg-gray-100 p-4 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none w-24 h-24 "
+              onClick={() => onCategorySelect(category.name)} 
             >
               <div className="text-3xl">{category.icon}</div>
               <span className="mt-2 text-sm font-medium">{category.name}</span>
