@@ -7,7 +7,7 @@ const app=express();
 
 app.get('/api/listing',GetAllListings);
 app.get('/api/listing/:id',GetListingsDetailsByID);
-app.post("api/bookings",BookProperty);
+app.post("/api/bookings",BookProperty);
 // Search functionality (basic filter using static data): GET/api/listings/search?query=<location>
 
 app.listen(port,()=>{

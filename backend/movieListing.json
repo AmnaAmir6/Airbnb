@@ -1,5 +1,6 @@
 [
     {
+        "id":1,
         "image": "/src/assets/image1.png", 
         "title": "Beautiful Beach House",
         "type": "Entire home",
@@ -23,6 +24,7 @@
         ]
       },
       {
+        "id":2,
         "image": "/src/assets/image2.png",
         "title": "Cozy Mountain Cabin",
         "type": "Private room",
@@ -35,6 +37,7 @@
         "bookings": []
       },
       {
+        "id":3,
         "image": "/src/assets/image3.png",
         "title": "Luxurious Villa",
         "type": "Entire home",
@@ -47,6 +50,7 @@
         "bookings": []
       },
       {
+          "id":4,
           "image": "/src/assets/image4.png",
           "title": "Dreamy lux",
           "type": "Entire home",
@@ -59,6 +63,7 @@
           "bookings": []
         },
         {
+          "id":5,
           "image": "/src/assets/image5.png",
           "title": "Marin Castle",
           "type": "Entire home",
