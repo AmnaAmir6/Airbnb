@@ -8,7 +8,19 @@
         "bathrooms": 2,
         "price": 25000,
         "rating": 4.5,
-        "category":"Beachfront"
+        "category":"Beachfront",
+        "bookings": [
+            {
+                "guestName": "John Doe",
+                "checkIn": "2024-11-15",
+                "checkOut": "2024-11-20"
+            },
+            {
+                "guestName": "Jane Smith",
+                "checkIn": "2024-12-05",
+                "checkOut": "2024-12-10"
+            }
+        ]
       },
       {
         "image": "/src/assets/image2.png",
@@ -19,7 +31,8 @@
         "bathrooms": 1,
         "price": 10000,
         "rating": 4.8,
-        "category":"Cabin"
+        "category":"Cabin",
+        "bookings": []
       },
       {
         "image": "/src/assets/image3.png",
@@ -30,7 +43,8 @@
         "bathrooms": 5,
         "price": 45000,
         "rating": 4.9,
-        "category":"Luxury"
+        "category":"Luxury",
+        "bookings": []
       },
       {
           "image": "/src/assets/image4.png",
@@ -41,7 +55,8 @@
           "bathrooms": 3,
           "price": 35000,
           "rating": 4.7,
-          "category":"Luxury"
+          "category":"Luxury",
+          "bookings": []
         },
         {
           "image": "/src/assets/image5.png",
@@ -52,6 +67,7 @@
           "bathrooms": 7,
           "price": 60000,
           "rating": 4.8,
-          "category":"Luxury"
+          "category":"Luxury",
+          "bookings": []
         }
 ]
