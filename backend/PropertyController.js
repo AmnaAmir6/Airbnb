@@ -43,3 +43,19 @@ export const BookProperty=async(req,res,next)=>{
     res.status(201).json({ success: true, message: "Booking created successfully"});
     next();
 }
+
+export const LisitingQueries=async(req,res,next)=>{
+    console.log("LisitingQueries function");
+    const{query}=req.query;
+    try{
+        const data = await fs.readFile("./movieListing.json","utf-8");
+        const listings = JSON.parse(data);
+        const result = listings.filter((listing) => listing.category.toLowerCase().includes(query.toLowerCase()));
+        
+        res.status(200).json({success:true,result});
+    }
+    catch{
+        res.status(500).json({success:false,message:"could not fetch lisiting data"});
+    }
+    next();
+}
