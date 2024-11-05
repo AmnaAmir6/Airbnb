@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram} from 'react-icons/fa';
-
+import { NavLink } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-white text-red-600 p-6 mt-6 border-t border-gray-300">
