@@ -1,8 +1,14 @@
-# React + Vite
+#Airbnb HomePage
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simplified clone of the Airbnb homepage, built with React and other supporting libraries for enhanced UI. The homepage allows users to explore different property categories (e.g., Beachfront, Luxury) by clicking on the icons. It dynamically fetches property listings, and users can filter listings by category. This project uses Tailwind CSS for layout and styling.
 
-Currently, two official plugins are available:
+#Setup Instructions
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before starting, make sure you have the following tools installed:
+Node.js
+npm
+You will also need access to a terminal and a code editor like Visual Studio Code
+
+Run the following commands to live the website:
+npm install
+npm run dev
