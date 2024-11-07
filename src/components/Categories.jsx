@@ -72,7 +72,8 @@ const Categories = ({ onCategorySelect , selectedCategory}) => {
         {categories.map((category) => (
           <div key={category.name}>
             <button
-              className="flex flex-col items-center justify-center bg-gray-100 p-4 rounded-lg shadow-md hover:bg-gray-200 focus:outline-none w-24 h-24 "
+              className={`flex flex-col items-center justify-center p-4 rounded-lg shadow-md w-24 h-24 focus:outline-none
+                        ${selectedCategory === category.name? "bg-red-200" : "bg-gray-100 hover:bg-gray-200"}`}
               onClick={() => onCategorySelect(category.name)} 
             >
               <div className="text-3xl">{category.icon}</div>

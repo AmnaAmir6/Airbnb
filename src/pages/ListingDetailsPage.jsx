@@ -32,7 +32,7 @@ const ListingDetailsPage = () => {
     <>
       <Navbar />
       <div className="container mx-auto p-8 mt-12">
-        <div className="max-w-5xl mx-auto bg-red-100 shadow-lg rounded-lg overflow-hidden flex flex-row ">
+        <div className="max-w-5xl mx-auto bg-white shadow-2xl shadow-gray-700/40 rounded-lg overflow-hidden flex flex-row ">
           <img className="w-[630px] h-[450px] object-cover p-4 rounded-3xl" src={image} alt={title} />
 
           <div className="p-6 flex justify-between flex-col ml-2">
