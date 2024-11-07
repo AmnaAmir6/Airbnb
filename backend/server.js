@@ -2,8 +2,11 @@
 import express from 'express'
 import { BookProperty, GetAllListings, GetListingsDetailsByID, LisitingQueries } from "./PropertyController.js";
 const port =8880;
+import cors from 'cors'
 
 const app=express();
+
+app.use(cors());
 
 app.get('/api/listing',GetAllListings);
 app.get('/api/listing/:id',GetListingsDetailsByID);

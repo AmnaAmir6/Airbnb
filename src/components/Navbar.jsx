@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="bg-white p-3 fixed top-0 w-full z-10">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-lg font-bold">
-          <a href="/"><img src="src/assets/logo.png" alt="Logo" className="h-12 w-30" /></a>
+          <a href="/"><img src="/src/assets/logo.png" alt="Logo" className="h-12 w-30" /></a>
         </div>
         <div className="hidden md:flex space-x-4">
           <a href="/" className="text-gray-600 hover:text-black">Home</a>
