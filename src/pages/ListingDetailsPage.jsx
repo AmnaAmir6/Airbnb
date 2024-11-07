@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from "../components/Navbar"
 
 const ListingDetailsPage = () => {
-  const id = 1;
+  const {id }= useParams();
+  console.log("id: ",id);
   const navigate = useNavigate();
   const [listing, setLisitng] = useState();
   useEffect(() => {
@@ -25,7 +26,6 @@ const ListingDetailsPage = () => {
     navigate(`/book/${id}`);
   };
 
-  // Check if listing has loaded before rendering
   if (!listing) return <div>Error List not found</div>;
   const { image, title, type, guests, bedrooms, bathrooms, price } = listing;
   return (
@@ -33,7 +33,7 @@ const ListingDetailsPage = () => {
       <Navbar />
       <div className="container mx-auto p-8 mt-12">
         <div className="max-w-5xl mx-auto bg-red-100 shadow-lg rounded-lg overflow-hidden flex flex-row ">
-          <img className="w-3xl h-84 object-cover p-4 rounded-3xl" src={image} alt={title} />
+          <img className="w-[630px] h-[450px] object-cover p-4 rounded-3xl" src={image} alt={title} />
 
           <div className="p-6 flex justify-between flex-col ml-2">
             <div>

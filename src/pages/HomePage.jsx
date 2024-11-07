@@ -15,6 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     const Data = [
         {
+          id:1,
           image: "/src/assets/image1.png", 
           title: "Beautiful Beach House",
           type: "Entire home",
@@ -26,6 +27,7 @@ const HomePage = () => {
           category:"Beachfront",
         },
         {
+          id:2,
           image: "/src/assets/image2.png",
           title: "Cozy Mountain Cabin",
           type: "Private room",
@@ -37,6 +39,7 @@ const HomePage = () => {
           category:"Cabin",
         },
         {
+          id:3,
           image: "/src/assets/image3.png",
           title: "Luxurious Villa",
           type: "Entire home",
@@ -48,6 +51,7 @@ const HomePage = () => {
           category:"Luxury",
         },
         {
+          id:4,
             image: "/src/assets/image4.png",
             title: "Dreamy lux",
             type: "Entire home",
@@ -59,6 +63,7 @@ const HomePage = () => {
             category:"Luxury",
           },
           {
+            id:5,
             image: "/src/assets/image5.png",
             title: "Marin Castle",
             type: "Entire home",

@@ -1,8 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ListingCard = ({ image, title, type, guests, bedrooms, bathrooms, price, rating }) => {
+const ListingCard = ({ id ,image, title, type, guests, bedrooms, bathrooms, price, rating }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/listings/${id}`);
+  };
+
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden m-[20px]">
+    <div onClick={handleCardClick} className="bg-white shadow-lg rounded-lg overflow-hidden m-[20px] cursor-pointer">
       <img src={image} alt={title} className="w-full h-48 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-semibold">{title}</h2>
