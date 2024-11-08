@@ -4,8 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from "../components/Navbar"
 
 const ListingDetailsPage = () => {
-  const {id }= useParams();
-  console.log("id: ",id);
+  const { id } = useParams();
+  console.log("id: ", id);
   const navigate = useNavigate();
   const [listing, setLisitng] = useState();
   useEffect(() => {
@@ -27,13 +27,13 @@ const ListingDetailsPage = () => {
   };
 
   if (!listing) return <div>Error List not found</div>;
-  const { image, title, type, guests, bedrooms, bathrooms, price } = listing;
+  const { image, title, type, guests, bedrooms, bathrooms, price, amenities } = listing;
   return (
     <>
       <Navbar />
       <div className="container mx-auto p-8 mt-12">
-        <div className="max-w-5xl mx-auto bg-white shadow-2xl shadow-gray-700/40 rounded-lg overflow-hidden flex flex-row ">
-          <img className="w-[630px] h-[450px] object-cover p-4 rounded-3xl" src={image} alt={title} />
+        <div className="max-w-3xl mx-auto bg-white shadow-2xl shadow-gray-700/40 rounded-lg overflow-hidden flex flex-col ">
+          <img className="w-[830px] h-[450px] object-cover p-4 rounded-3xl" src={image} alt={title} />
 
           <div className="p-6 flex justify-between flex-col ml-2">
             <div>
@@ -54,6 +54,16 @@ const ListingDetailsPage = () => {
                   <p><span className="font-semibold">Bathrooms:</span> {bathrooms}</p>
                 </div>
               </div>
+              <div className='mt-6'>
+              <span className="font-semibold ">Amenities: </span>
+              <div className="grid grid-cols-3 gap-4 text-gray-700 pb-6 pt-4">
+                {amenities.map((amenity, index) => (
+                  <div key={index} className="flex items-center">
+                    <span className="mr-2">⭕</span> {amenity}
+                  </div>
+                ))}
+              </div>
+              </div>
 
               <div className="mt-4">
                 <p className="text-lg font-semibold text-gray-800">
@@ -61,7 +71,7 @@ const ListingDetailsPage = () => {
                 </p>
               </div>
 
-              <div className="mt-8 ">
+              <div className="mt-8 text-end">
                 <button
                   onClick={handleBooking}
                   className="bg-red-400 text-white px-6 py-3 rounded-lg hover:bg-red-600 focus:outline-none self-end"

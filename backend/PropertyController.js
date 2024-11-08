@@ -3,7 +3,7 @@ import fs from 'fs/promises'
 export const GetAllListings=async(req,res,next)=>{
     console.log("GetAllListings function");
     try{
-        const data = await fs.readFile("./movieListing.json","utf-8");
+        const data = await fs.readFile("./propertyListing.json","utf-8");
         const listings = JSON.parse(data);
         res.status(200).json({success:true,listings});
     }
@@ -18,7 +18,7 @@ export const GetListingsDetailsByID=async(req,res,next)=>{
     console.log(`GetListingsDetails by ID ${id} function`);
     
     try{
-        const data = await fs.readFile("./movieListing.json","utf-8");
+        const data = await fs.readFile("./propertyListing.json","utf-8");
         const listings = JSON.parse(data);
         //console.log("listings: ",listings);
         const result = listings.find((listing) => listing.id === parseInt(id));
@@ -48,7 +48,7 @@ export const LisitingQueries=async(req,res,next)=>{
     console.log("LisitingQueries function");
     const{query}=req.query;
     try{
-        const data = await fs.readFile("./movieListing.json","utf-8");
+        const data = await fs.readFile("./propertyListing.json","utf-8");
         const listings = JSON.parse(data);
         const result = listings.filter((listing) => listing.category.toLowerCase().includes(query.toLowerCase()));
         
