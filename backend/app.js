@@ -1,5 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from 'cors'
 
 import AuthenticationRouter from "./routes/AuthenticationRoute.js"
 import AdminRouter from "./routes/AdminRoute.js"
@@ -9,6 +10,9 @@ const URI=process.env.MONGODB_URI;
 const port =8880;
 
 const app = express();
+
+app.use(cors());
+app.use(express.json());
 
 mongoose.connect(URI);
 
