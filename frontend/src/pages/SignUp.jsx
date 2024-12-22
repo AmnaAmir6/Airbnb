@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -9,13 +11,34 @@ const SignupPage = () => {
     role: "user",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+      console.log(formData);
+    try{
+      const response = await axios.post("http://localhost:8880/api/auth/register",
+        {
+          username : formData.username,
+          password : formData.password,
+          email : formData.email,
+          phoneNo :formData.phoneNo,
+          role:formData.role,
+        });
+        console.log("signup resonse : ",response.data)
+        if(response.data)
+        {
+          navigate("/login");
+        }
+      
+    }
+    catch(error){
+      console.log(error);
+    }
   };
 
   return (

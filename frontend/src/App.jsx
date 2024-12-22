@@ -5,16 +5,17 @@ import BookingPage from './pages/BookingPage'
 import { useAuthStore } from './store/AuthStore'
 import LoginPage from './pages/Login'
 import SignUpPage from './pages/SignUp'
+import HostHomePage from './pages/HostHomePage'
 
 function App () {
 
-  const {user}= useAuthStore();
+  const {user,role}= useAuthStore();
   return (
     <>
       <BrowserRouter>
       <Routes>
         <Route path='/' element={
-          user ? <HomePage/> : <Navigate to='/login' />}
+          user && role === 'user' ? <HomePage/> : <Navigate to='/login' />}
         />
         <Route path='/login' element={
           user ? <Navigate to='/' /> : <LoginPage/>}
@@ -22,6 +23,9 @@ function App () {
         <Route path='/signup' element={<SignUpPage/>}/>
         <Route path='/listings/:id' element={<ListingDetailsPage/>}/>
         <Route path='/book/:id' element={<BookingPage/>}/>
+        <Route path='/hostHome' element={
+          user && role === 'host' ? <HostHomePage/>: <Navigate to='/login' />}
+        />
       </Routes>
       </BrowserRouter>
     </>

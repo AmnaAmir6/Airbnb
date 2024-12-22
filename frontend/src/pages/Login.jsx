@@ -1,7 +1,11 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthStore } from '/src/store/AuthStore'
 
 const LoginPage = () => {
+  const { setUser, setRole } = useAuthStore();
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -15,17 +19,41 @@ const LoginPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
+  const handleSubmit = async (e) => {
+    try{
+      e.preventDefault();
+      console.log(formData);
+      const response = await axios.post("http://localhost:8880/api/auth/login",
+        {
+          username : formData.username,
+          password : formData.password,
+          role:formData.role,
+        });
+        console.log("login resonse : ",response.data)
+        if(response.data)
+        {
+          console.log("user :".response.data.user)
+          setUser(response.data.user);
+          setRole(formData.role);
+          if(role == 'user')
+          {
+            navigate("/");
+          }
+          else{
+            navigate("/hostHome");
+          }
+        }
+        
+      
+    }
+    catch(error){
+      console.log(error);
+    }
+    
   };
 
   const handleSignupRedirect = () => {
     navigate("/signup");
-  };
-
-  const handleForgotPassword = () => {
-    alert("Redirect to Forgot Password Page");
   };
 
   return (
@@ -37,7 +65,7 @@ const LoginPage = () => {
               <div className="text-red-400 mb-8 text-center flex items-center justify-center">
                 <img
                   className="h-12 w-12 mr-4"
-                  src="src/assets/page_icon.png" // Replace with your logo path
+                  src="src/assets/page_icon.png"
                   alt="Logo"
                 />
                 <h1 className="text-2xl font-bold">Airbnb</h1>
@@ -82,7 +110,6 @@ const LoginPage = () => {
 
                 <div className="mb-4">
                   <div className="flex justify-center items-center space-x-4">
-                    {/* User Option */}
                     <label className="flex items-center ">
                       <input
                         type="radio"
@@ -101,7 +128,6 @@ const LoginPage = () => {
                       </div>
                     </label>
 
-                    {/* Host Option */}
                     <label className="flex items-center space-x-2">
                       <input
                         type="radio"
@@ -153,7 +179,7 @@ const LoginPage = () => {
           </div>
           <div className="hidden md:block">
             <img
-              src="src/assets/bg_image2.png" // Replace with your image path
+              src="src/assets/bg_image2.png"
               alt="Login background"
               className="w-full h-full object-cover"
             />

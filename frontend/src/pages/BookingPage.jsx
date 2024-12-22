@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import axios from 'axios';
+import { useAuthStore } from '../store/AuthStore';
 
 const BookingPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const {user}=useAuthStore();
 
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
@@ -21,8 +23,8 @@ const BookingPage = () => {
   const fetchLisitngByID = async (id) => {
     try {
       const response = await axios.get(`http://localhost:8880/api/listing/${id}`);
-      console.log("response: ", response.data.result);
-      setSelectedListing(response.data.result);
+      console.log("response: ", response.data.property);
+      setSelectedListing(response.data.property);
     }
     catch (error) {
       console.error("Error fetching data:", error);
@@ -68,11 +70,12 @@ const BookingPage = () => {
     setTotalPrice(diffDays * selectedListing.price);
 
     try {
-      const response = await axios.post(`http://localhost:8880/api/bookings`,{
-        selectedListing,
-        booking:{
-          checkInDate,checkOutDate
-        }
+      const response = await axios.post(`http://localhost:8880/api/listings/bookings`,{
+        id:selectedListing,
+        checkInDate,
+        checkOutDate,
+        username:user.username,
+        userId:user._id
       });
       console.log("response: ", response.data);
 
