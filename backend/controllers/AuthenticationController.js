@@ -1,5 +1,6 @@
 import User  from "../models/User.js";
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcryptjs';
+import jwt  from "jsonwebtoken";
 
 export const CreateUser = async (req, res) => {
     try {
@@ -34,5 +35,35 @@ export const CreateUser = async (req, res) => {
     catch(error){
         console.error(error);
         res.status(500).send("Something went wrong ,user not created");
+    }
+}
+
+export const LoginUser = async (req, res) => {
+    try {
+        const {username,password}=req.body;
+        console.log(username,password);
+        const user = await User.findOne({username});
+        console.log(user);
+        if(!user)
+        {
+            console.log("User does not exists");
+            return res.status(400).send("User does not exists");
+        }
+
+       
+        const isCorrectPassword = await bcrypt.compare(password,user.password);
+        if(!isCorrectPassword)
+        {
+            console.log("Incorrect User password");
+            return res.status(400).send("Incorrect User password");
+        }
+
+        const token = jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn : "1h"});
+        console.log("User logged in");
+        res.status(201).json({user,token});
+    }
+    catch(error){
+        console.error(error);
+        res.status(500).send("Something went wrong ,user not logged in");
     }
 }
