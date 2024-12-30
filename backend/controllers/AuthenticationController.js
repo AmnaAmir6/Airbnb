@@ -95,7 +95,7 @@ export const LoginUser = async (req, res) => {
                 return res.status(400).send("Host does not exists");
             }
 
-            const isCorrectPassword = await bcrypt.compare(password, user.password);
+            const isCorrectPassword = await bcrypt.compare(password, host.password);
             if (!isCorrectPassword) {
                 console.log("Incorrect host password");
                 return res.status(400).send("Incorrect host password");
@@ -103,11 +103,33 @@ export const LoginUser = async (req, res) => {
 
             const token = jwt.sign({ id: host._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
             console.log("Host logged in");
-            res.status(201).json({ host, token });
+            res.status(201).json({ user:host, token });
         }
     }
     catch (error) {
         console.error(error);
         res.status(500).send("Something went wrong ,unable to log in");
+    }
+}
+
+export const LoginBackUser=async(req,res)=>{
+    console.log("Into login back func")
+    try{
+        const token = req.headers.authorization.split(" ")[1];
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
+
+        const Expired = Date.now()>=decoded.exp*1000;
+        if(Expired)
+        {
+            req.status(401).send("Token Expired");
+        }
+        console.log(token);
+
+        const user = await User.findById(decoded.id);
+        res.status(200).json({user});
+    }
+    catch(error){
+        console.log(error);
+        res.status(500).send("something went wrong");
     }
 }

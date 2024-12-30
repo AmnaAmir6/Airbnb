@@ -63,7 +63,7 @@ const SignupPage = () => {
                     value={formData.username}
                     onChange={handleChange}
                     placeholder="Enter your username"
-                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100"
+                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100  focus:bg-red-100"
                     required
                   />
                   <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-gray-500">
@@ -77,7 +77,7 @@ const SignupPage = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="Enter your password"
-                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100"
+                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100  focus:bg-red-100"
                     required
                   />
                   <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-gray-500">
@@ -91,7 +91,7 @@ const SignupPage = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter your email"
-                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100"
+                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100  focus:bg-red-100"
                     required
                   />
                   <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-gray-500">
@@ -105,7 +105,7 @@ const SignupPage = () => {
                     value={formData.phoneNo}
                     onChange={handleChange}
                     placeholder="Enter your phone number"
-                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100"
+                    className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100  focus:bg-red-100"
                     required
                   />
                   <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-gray-500">

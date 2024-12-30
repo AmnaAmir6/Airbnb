@@ -25,12 +25,10 @@ const propertySchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true
     },
     type: {
         type: String,
         required: true,
-        unique: true
     },
 
     image: String,
@@ -41,6 +39,7 @@ const propertySchema = new mongoose.Schema({
     category: String,
     rating: Number,
     bookings: [bookingSchema],
+    amenities:[String],
 
 });
 

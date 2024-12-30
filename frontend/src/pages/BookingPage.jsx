@@ -15,6 +15,7 @@ const BookingPage = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const[selectedListing,setSelectedListing]=useState(null);
   const [showBookedDetails,setShowBookedDetails]=useState(false);
+  
 
   useEffect(() => {
     fetchLisitngByID(id);
@@ -23,8 +24,8 @@ const BookingPage = () => {
   const fetchLisitngByID = async (id) => {
     try {
       const response = await axios.get(`http://localhost:8880/api/listing/${id}`);
-      console.log("response: ", response.data.property);
-      setSelectedListing(response.data.property);
+      console.log("fetch by id response: ", response.data.listing);
+      setSelectedListing(response.data.listing);
     }
     catch (error) {
       console.error("Error fetching data:", error);
@@ -68,26 +69,30 @@ const BookingPage = () => {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
     setTotalPrice(diffDays * selectedListing.price);
-
+    const username=localStorage.getItem("username")
+    console.log("data:",selectedListing._id,
+      checkInDate,
+      checkOutDate,
+      username)
     try {
-      const response = await axios.post(`http://localhost:8880/api/listings/bookings`,{
-        id:selectedListing,
+      const response = await axios.post(`http://localhost:8880/api/listing/bookings`,{
+        id:selectedListing._id,
         checkInDate,
         checkOutDate,
-        username:user.username,
-        userId:user._id
+        username
       });
-      console.log("response: ", response.data);
+      console.log("add booking response: ", response.data);
 
       if(response.data.success){
         setShowBookedDetails(true);
       }
+      console.log(`Booking confirmed for Id: ${id}`);
     }
     catch (error) {
       setError(error);
       console.error("Error booking data:", error);
     }
-    console.log(`Booking confirmed for Id: ${id}`);
+    
   };
 
   const closeShowBookedDetails =()=>{

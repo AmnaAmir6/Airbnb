@@ -15,8 +15,8 @@ const ListingDetailsPage = () => {
   const fetchLisitngByID = async (id) => {
     try {
       const response = await axios.get(`http://localhost:8880/api/listing/${id}`);
-      console.log("response: ", response.data.result);
-      setLisitng(response.data.result);
+      console.log("response: ", response.data.listing);
+      setLisitng(response.data.listing);
     }
     catch (error) {
       console.error("Error fetching data:", error);

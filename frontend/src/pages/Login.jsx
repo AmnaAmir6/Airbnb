@@ -30,21 +30,28 @@ const LoginPage = () => {
           role:formData.role,
         });
         console.log("login resonse : ",response.data)
-        if(response.data)
+        if(response.data.user)
         {
-          console.log("user :".response.data.user)
+          console.log("user :",response.data.user)
           setUser(response.data.user);
           setRole(formData.role);
-          if(role == 'user')
+          console.log("Role:", formData.role);
+
+          localStorage.setItem('username', formData.username);
+          localStorage.setItem('role', formData.role);
+          localStorage.setItem('token', response.data.token);
+          console.log("Saved to local storage : ", formData.username,formData.role,response.data.token)
+
+          if(formData.role === 'host')
           {
-            navigate("/");
-          }
-          else{
+            console.log("navigating to host /hostHome");
             navigate("/hostHome");
+          } else {
+            console.log("navigating to user /");
+              navigate('/');
           }
         }
-        
-      
+    
     }
     catch(error){
       console.log(error);
@@ -79,8 +86,9 @@ const LoginPage = () => {
                       name="username"
                       value={formData.username}
                       onChange={handleChange}
+                      autoComplete="username"
                       placeholder="Enter your username"
-                      className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100"
+                      className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100  focus:bg-red-100"
                       required
                     />
                     <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-gray-500">
@@ -96,8 +104,9 @@ const LoginPage = () => {
                       name="password"
                       value={formData.password}
                       onChange={handleChange}
+                      autoComplete="current-password"
                       placeholder="Enter your password"
-                      className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100"
+                      className="w-full px-4 py-2 pl-10 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500 placeholder-opacity-75 hover:bg-red-100 focus:bg-red-100"
                       required
                     />
                     <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-xl text-gray-500">
